@@ -9,4 +9,4 @@ This script simulates the house financial performance of a 1-5% edge in a percen
 
 Run the script, and it will simulate 1,000,000 bets and plot the financial performance of each chosen house edge.
 
-![alt text](https://imgur.com/a/BDT1EuX)
+[![Screenshot-2023-08-03-at-4-04-10-PM.png](https://i.postimg.cc/c475SKYh/Screenshot-2023-08-03-at-4-04-10-PM.png)](https://postimg.cc/bsJR0wmS)
