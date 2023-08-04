@@ -8,3 +8,5 @@ This script simulates the house financial performance of a 1-5% edge in a percen
 5. hl(perfList) will print out the lowest and highest balance of a trial categorized by chosen house edge.
 
 Run the script, and it will simulate 1,000,000 bets and plot the financial performance of each chosen house edge.
+
+![alt text]([http://url/to/img.png](https://imgur.com/a/BDT1EuX)https://imgur.com/a/BDT1EuX)
