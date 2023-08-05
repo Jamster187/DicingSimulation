@@ -2,8 +2,7 @@ import random
 import matplotlib.pyplot as plt
 
 total = 30000
-performance51, performance52, performance53, performance54, performance55 \
-= [], [], [], [], []
+performances = [[], [], [], [], []]
 
 def roll():
     roll=random.randint(1, 100)
@@ -39,27 +38,14 @@ def wager(i):
 def trial(trialSize):
     # runs a sample of trialSize size, through each house edge condition and
     # appends the results in their respective lists
-    for i in range(trialSize):
-        wager(51)
-        performance51.append(total)
-    resetTotal()
-    for i in range(trialSize):
-        wager(52)
-        performance52.append(total)
-    resetTotal()
-    for i in range(trialSize):
-        wager(53)
-        performance53.append(total)
-    resetTotal()
-    for i in range(trialSize):
-        wager(54)
-        performance54.append(total)
-    resetTotal()
-    for i in range(trialSize):
-        wager(55)
-        performance55.append(total)
-    resetTotal()
-
+    count = 0
+    for x in range(51, 56, 1):
+        for i in range(trialSize):
+            wager(x)
+            performances[count].append(total)
+        resetTotal()
+        count += 1
+        
 def hl(perfList):
     #prints the high and low of the casino bankroll during the trial given
     #the corresponding house edge list
@@ -67,28 +53,21 @@ def hl(perfList):
     high = max(perfList)
     print("High: ", high, "low: ", low)
             
-
 def plotGraph():
-    x, y1, y2, y3, y4, y5 = [], [], [], [], [], []
+    x, y = [], [ [], [], [], [], [] ]
+    listSize = len(performances[0])
     
-    for i in range(len(performance51)):
+    for i in range(listSize):
         x.append(i)
-        y1.append(performance51[i])
-    for i in range(len(performance52)):
-        y2.append(performance52[i])
-    for i in range(len(performance53)):
-        y3.append(performance53[i])
-    for i in range(len(performance54)):
-        y4.append(performance54[i])
-    for i in range(len(performance55)):
-        y5.append(performance55[i])
-        
+    for z in range(0, 5, 1):
+        for i in range(listSize):
+            y[z].append(performances[z][i])       
     plt.figure(1)
-    plt.plot(x, y1, label="51x2")
-    plt.plot(x, y2, label="52x2")
-    plt.plot(x, y3, label="53x2")
-    plt.plot(x, y4, label="54x2")
-    plt.plot(x, y5, label="55x2")
+    plt.plot(x, y[0], label="51x2")
+    plt.plot(x, y[1], label="52x2")
+    plt.plot(x, y[2], label="53x2")
+    plt.plot(x, y[3], label="54x2")
+    plt.plot(x, y[4], label="55x2")
     plt.xscale("log")
     plt.yscale("log")
     plt.xlabel("Bets")
@@ -103,6 +82,4 @@ def plotGraph():
 # Dice Simulation
 
 trial(1000000)
-hl(performance51), hl(performance52), hl(performance53), hl(performance54), \
-hl(performance55)
 plotGraph()
