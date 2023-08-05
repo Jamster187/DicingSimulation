@@ -2,11 +2,7 @@ import random
 import matplotlib.pyplot as plt
 
 total = 30000
-performance51 = []
-performance52 = []
-performance53 = []
-performance54 = []
-performance55 = []
+performance51, performance52, performance53, performance54, performance55 = [], [], [], [], []
 
 def roll():
     roll=random.randint(1, 100)
