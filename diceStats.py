@@ -1,6 +1,5 @@
 import random
 import matplotlib.pyplot as plt
-import matplotlib.ticker as mtick
 
 total = 30000
 performance51 = []
