@@ -2,7 +2,7 @@ import random
 import matplotlib.pyplot as plt
 
 total = 30000
-performances = [[], [], [], [], []]
+performances = [[], [], [], [], [], [], [], [], [], [], []]
 
 def roll():
     roll=random.randint(1, 100)
@@ -15,8 +15,16 @@ def betamount():
 def resetTotal():
     global total
     total = 30000
-    return 
     
+def test():
+    resultsList = []
+    for i in range(10000):
+        roll123 = roll()
+        resultsList.append(roll123)
+    onecount = resultsList.count(1)
+    hundredcount = resultsList.count(100)
+    print(onecount, hundredcount)
+
 def dYx2(Y):
     #This determines the house edge i.e y = 51 will be a 51x2 dice
     if roll() > Y:
@@ -29,45 +37,52 @@ def wager(i):
     global total
     bet = betamount()
     result = dYx2(i)
-    if result == "WIN":
-        total += bet
+    if i == 50:
+        if result == "WIN":
+            total += bet
+        else:
+            total -= (bet * 0.9)  
     else:
-        total -= bet
+        if result == "WIN":
+            total += bet
+        else:
+            total -= bet
     return
 
 def trial(trialSize):
     # runs a sample of trialSize size, through each house edge condition and
     # appends the results in their respective lists
     count = 0
-    for x in range(51, 56, 1):
+    for x in range(50, 61, 1):
         for i in range(trialSize):
             wager(x)
             performances[count].append(total)
         resetTotal()
         count += 1
-        
-def hl(perfList):
-    #prints the high and low of the casino bankroll during the trial given
-    #the corresponding house edge list
-    low = min(perfList)
-    high = max(perfList)
-    print("High: ", high, "low: ", low)
             
 def plotGraph():
-    x, y = [], [ [], [], [], [], [] ]
+    x, y = [], [ [], [], [], [], [], [], [], [], [], [], [] ]
     listSize = len(performances[0])
     
     for i in range(listSize):
         x.append(i)
-    for z in range(0, 5, 1):
+        
+    for z in range(0, 11, 1):
         for i in range(listSize):
-            y[z].append(performances[z][i])       
+            y[z].append(performances[z][i])
+            
     plt.figure(1)
-    plt.plot(x, y[0], label="51x2")
-    plt.plot(x, y[1], label="52x2")
-    plt.plot(x, y[2], label="53x2")
-    plt.plot(x, y[3], label="54x2")
-    plt.plot(x, y[4], label="55x2")
+    plt.plot(x, y[0], label="50x2 5% rake")
+    plt.plot(x, y[1], label="51x2")
+    plt.plot(x, y[2], label="52x2")
+    plt.plot(x, y[3], label="53x2")
+    plt.plot(x, y[4], label="54x2")
+    plt.plot(x, y[5], label="55x2")
+    plt.plot(x, y[6], label="56x2")
+    plt.plot(x, y[7], label="57x2")
+    plt.plot(x, y[8], label="58x2")
+    plt.plot(x, y[9], label="59x2")
+    plt.plot(x, y[10], label="60x2")
     plt.xscale("log")
     plt.yscale("log")
     plt.xlabel("Bets")
@@ -81,5 +96,5 @@ def plotGraph():
     
 # Dice Simulation
 
-trial(1000000)
+trial(100000)
 plotGraph()
