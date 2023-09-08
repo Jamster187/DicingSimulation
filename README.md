@@ -6,6 +6,6 @@ This script simulates the house financial performance of a 1-5% edge in a percen
 3. Each bet is a randomly generated integer between 1-300.
 4. trial(100) will simulate a trial of 100 bets (trialSize = 100 in this case) and save all balances after wager() in a list.
 
-Run the script, and it will simulate 1,000,000 bets and plot the financial performance of each chosen house edge.
+Run the script, and it will simulate 100,000 bets and plot the financial performance of each chosen house edge.
 
-[![Screenshot-2023-08-03-at-4-04-10-PM.png](https://i.postimg.cc/c475SKYh/Screenshot-2023-08-03-at-4-04-10-PM.png)](https://postimg.cc/bsJR0wmS)
+[![Screenshot-2023-09-08-at-1-51-25-PM.png](https://i.postimg.cc/HxR1d0sT/Screenshot-2023-09-08-at-1-51-25-PM.png)](https://postimg.cc/R67DTHHY)
