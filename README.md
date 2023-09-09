@@ -1,6 +1,6 @@
 # DicingSimulation
 Simulation of casino dice game odds
-This script simulates the house financial performance of a 1-5% edge in a percentile dice game and plots the results in a graph.
+This script simulates the house financial performance of a 1-10% edge in a percentile dice game and plots the results in a graph.
 1. The house starts with $30k.
 2. Each roll is a randomly generated integer between 1-100.
 3. Each bet is a randomly generated integer between 1-300.
